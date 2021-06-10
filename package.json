@@ -1,0 +1,33 @@
+{
+  "name": "dev",
+  "version": "1.0.0",
+  "description": "Social networking site",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ardad2/SocialMedia.git"
+  },
+  "author": "Arjun Dadhwal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ardad2/SocialMedia/issues"
+  },
+  "homepage": "https://github.com/Ardad2/SocialMedia#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "express-validator": "^6.11.1",
+    "gravatar": "^1.8.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.13",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "nodeman": "^1.1.2"
+  }
+}
