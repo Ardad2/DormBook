@@ -61,7 +61,7 @@ router.post(
 
       await user.save(); //register the user
 
-      // Return the jsonwebtoken
+      // Return the jsonwebtoken from the registered user
 
       const payload = {
         user: {
