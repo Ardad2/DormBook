@@ -1,7 +1,17 @@
 import React, { Fragment, useState } from "react";
 
 const Register = () => {
-  const { formData, setFormData } = useState();
+  const { formData, setFormData } = useState({
+    name: "",
+    email: "",
+    password: "",
+    password2: "",
+  });
+
+  const { name, email, password, password2 } = formData;
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
     <Fragment>
@@ -11,7 +21,14 @@ const Register = () => {
       </p>
       <form className="form" action="create-profile.html">
         <div className="form-group">
-          <input type="text" placeholder="Name" name="name" required />
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            value={name}
+            onChange={(e) => onChange(e)}
+            required
+          />
         </div>
         <div className="form-group">
           <input type="email" placeholder="Email Address" name="email" />
