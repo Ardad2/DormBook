@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import axios from "axios";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -13,12 +14,40 @@ const Register = () => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value }); //e.target.name is the key ueed
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (password != password2) {
       console.log("Passwords do not match");
     } else {
-      console.log(formData);
+      console.log("Paswords match, success");
+
+      /*
+
+      AXIOS IS USED TO MAKE THE REQUESTS
+
+      SENDING POST REQUEST WITHOUT USING REDUX
+
+      const newUser = {
+        name,
+        email,
+        password,
+      };
+
+      try {
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+
+        const body = JSON.stringify(newUser);
+
+        const res = await axios.post("/api/users", body, config);
+        console.logt(res.data);
+      } catch (err) {
+        console.error(err.response.data);
+      }
+      */
     }
   };
 
