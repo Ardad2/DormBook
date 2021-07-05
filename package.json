@@ -31,6 +31,7 @@
     "mongoose": "^5.12.13",
     "normalize-url": "^6.1.0",
     "postman": "^0.2.0",
+    "redux-thunk": "^2.3.0",
     "request": "^2.88.2"
   },
   "devDependencies": {
