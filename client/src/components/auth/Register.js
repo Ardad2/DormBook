@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 
 const Register = () => {
-  const { formData, setFormData } = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
@@ -11,7 +11,7 @@ const Register = () => {
   const { name, email, password, password2 } = formData;
 
   const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value }); //e,target.name is the key ueed
 
   return (
     <Fragment>
