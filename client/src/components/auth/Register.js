@@ -11,7 +11,7 @@ const Register = () => {
   const { name, email, password, password2 } = formData;
 
   const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value }); //e,target.name is the key ueed
+    setFormData({ ...formData, [e.target.name]: e.target.value }); //e.target.name is the key ueed
 
   return (
     <Fragment>
@@ -31,7 +31,14 @@ const Register = () => {
           />
         </div>
         <div className="form-group">
-          <input type="email" placeholder="Email Address" name="email" />
+          <input
+            type="email"
+            placeholder="Email Address"
+            name="email"
+            value={email}
+            onChange={(e) => onChange(e)}
+            required
+          />
           <small class="form-text">
             This site uses Gravatar so if you want a profile image, use a
             Gravatar email
@@ -42,7 +49,10 @@ const Register = () => {
             type="password"
             placeholder="Password"
             name="password"
+            value={password}
+            onChange={(e) => onChange(e)}
             minLength="6"
+            required
           />
         </div>
         <div className="form-group">
@@ -50,6 +60,8 @@ const Register = () => {
             type="password"
             placeholder="Confirm Password"
             name="password2"
+            value={password2}
+            onChange={(e) => onChange(e)}
             minLength="6"
           />
         </div>
