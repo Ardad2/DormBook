@@ -1,14 +1,7 @@
 import React, { Fragment, useState } from "react";
 
 const Register = () => {
-  const { formData, setFormData } = useState({
-    name: "",
-    email: "",
-    password: "",
-    password2: "",
-  });
-
-  const { name, email, password, password2 } = formData;
+  const { formData, setFormData } = useState();
 
   return (
     <Fragment>
@@ -18,17 +11,11 @@ const Register = () => {
       </p>
       <form className="form" action="create-profile.html">
         <div className="form-group">
-          <input
-            type="text"
-            placeholder="Name"
-            name="name"
-            value={name}
-            required
-          />
+          <input type="text" placeholder="Name" name="name" required />
         </div>
         <div className="form-group">
           <input type="email" placeholder="Email Address" name="email" />
-          <small className="form-text">
+          <small class="form-text">
             This site uses Gravatar so if you want a profile image, use a
             Gravatar email
           </small>
