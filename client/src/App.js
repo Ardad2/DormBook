@@ -7,10 +7,16 @@ import Login from "./components/auth/Login";
 import Alert from "./components/layout/Alert";
 import "./App.css";
 
+if (localStorage.token)
+{
+  setAuthToken(localStorage.token);
+}
+
 //Redux
 
 import { Provider } from "react-redux";
 import store from "./store";
+import setAuthToken from "./utils/setAuthToken";
 
 const App = () => (
   <Provider store={store}>
