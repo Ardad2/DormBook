@@ -12,6 +12,7 @@ export default function (state = initialState, action) {
       isAuthenticated: true,
       loading: false,
       user: payload
+    
     }
     case REGISTER_SUCCESS:
       localStorage.setItem("token", payload.token)
@@ -32,7 +33,7 @@ export default function (state = initialState, action) {
     case SET_ALERT:
       return [...state, payload]; //Add new alert to already exisitng alerts (state)
     case REMOVE_ALERT:
-      return state.filter((alert) => alert.id !== payload);
+   // return state.filter((alert) => alert.id !== payload);
     default:
       return state;
   }

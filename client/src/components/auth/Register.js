@@ -121,4 +121,9 @@ Register.propTypes = {
   register: PropTypes.func.isRequired,
 };
 
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+
 export default connect(null, { setAlert, register })(Register); //connect(state to map, object with action)
