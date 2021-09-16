@@ -6,11 +6,13 @@ const Landing = () => {
     <section className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">
+          <div className="intro-text">
           <h1 className="x-large">DormBook</h1>
           <p className="lead">
             Keep in touch with your Dormmates in your own personalized social
             media!
           </p>
+          </div>
           <div className="buttons">
             <Link to="/register" className="btn btn-primary">
               Register
