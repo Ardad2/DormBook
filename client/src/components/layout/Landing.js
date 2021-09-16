@@ -1,25 +1,51 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+
+const onSubmit = async (e) => {
+    return <Redirect to="/Login"/>
+
+};
 
 const Landing = () => {
   return (
     <section className="landing">
       <div className="dark-overlay">
-        <div className="landing-inner">
-          <div className="intro-text">
+      <div className="intro-text">
           <h1 className="x-large">DormBook</h1>
           <p className="lead">
             Keep in touch with your Dormmates in your own personalized social
             media!
           </p>
           </div>
+        <div className="landing-inner">
           <div className="buttons">
-            <Link to="/register" className="btn btn-primary">
-              Register
-            </Link>
-            <Link to="/login" clLinkssName="btn btn-light">
-              Sign In
-            </Link>
+      <h1 className="large text-primary">Sign In</h1>
+      <p className="lead">
+        <i className="fas fa-user"></i> Sign Into Your Account
+      </p>
+      <form className="form" onSubmit={(e) => onSubmit(e)}>
+        <div className="form-group">
+          <input
+            type="email"
+            placeholder="Email Address"
+            name="email"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            minLength="6"
+            required
+          />
+        </div>
+        <input type="submit" className="btn btn-primary" value="Login" />
+      </form>
+      <p className="my-1">
+        Don't have an account? <Link to="/register">Register an account</Link>
+      </p>
           </div>
         </div>
       </div>
