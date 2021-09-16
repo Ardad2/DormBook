@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
 
-const Navbar = ({ auth: { isAuthenticated } = {isAuthenticated: false}, logout}) => {
+const Navbar = ({ auth: { isAuthenticated, loading } = {isAuthenticated: false, loading: false}, logout}) => {
   const authLinks = (
     <ul>
       <li>
