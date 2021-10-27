@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export default function(state = initialState, action) {
-    const { type, paylaod } = action;
+    const { type, payload } = action;
 
     switch(type){
         case GET_PROFILE: 
@@ -23,6 +23,14 @@ export default function(state = initialState, action) {
             error: payload,
             loading: false
         };
+
+        case CLEAR_PROFILE:
+            return {
+                ...state,
+                profile: null,
+                repos: [],
+                loading: false
+            }
 
         default: 
             return state;
