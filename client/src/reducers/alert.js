@@ -1,20 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { SET_ALERT, REMOVE_ALERT } from '../actions/types';
 
-const Alert = ({ alerts }) =>
-  alerts.map((alert) => (
-    <div key={alert.id} className={`alert alert-${alert.alertType}`}>
-      {alert.msg}
-    </div>
-  ));
+const initialState = [];
 
-Alert.propTypes = {
-  alerts: PropTypes.array.isRequired
-};
+function alertReducer(state = initialState, action) {
+  const { type, payload } = action;
 
-const mapStateToProps = (state) => ({
-  alerts: state.alert
-});
+  switch (type) {
+    case SET_ALERT:
+      return [...state, payload];
+    case REMOVE_ALERT:
+      return state.filter((alert) => alert.id !== payload);
+    default:
+      return state;
+  }
+}
 
-export default connect(mapStateToProps)(Alert);
+export default alertReducer;
+
