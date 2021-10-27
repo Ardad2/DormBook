@@ -1,6 +1,5 @@
 import React from "react";
 import { Redirect, Link } from "react-router-dom";
-import Register from "../auth/Register";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -64,7 +63,7 @@ Landing.propTypes = {
   isAuthenticated: PropTypes.bool
 }
 
-const mapStatetoProps = state => ({
+const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
 
