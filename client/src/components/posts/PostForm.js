@@ -25,7 +25,7 @@ const PostForm = ({ auth: { user }, addPost }) => {
           onChange={e => setText(e.target.value)}
           required
         />
-        <input type='submit' className='btn btn-dark my-1' value='Submit' />
+        <input type='submit' className='btn btn-primary' value='Submit' />
       </form>
     </div>
   );

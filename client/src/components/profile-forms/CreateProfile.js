@@ -53,105 +53,92 @@ const CreateProfile = ({
 		<Redirect to='/dashboard' />
 	) : (
 		<Fragment>
-			<h1 className='large text-primary'>Create Your Profile</h1>
+			<h1 className='large text-primary'>Profile Set Up</h1>
 			<p className='lead'>
-				<i className='fas fa-user' /> Let's get some information to make your
-				profile stand out
+				 Tells us more about yourself
 			</p>
-			<small>* = required field</small>
 			<form className='form' onSubmit={e => onSubmit(e)}>
 				<div className='form-group'>
+                <p className='form-text'>
+						What year are you in college?
+					</p>
 					<select name='status' value={status} onChange={e => onChange(e)}>
-						<option value='0'>* Select Professional Status</option>
-						<option value='Developer'>Developer</option>
-						<option value='Junior Developer'>Junior Developer</option>
-						<option value='Senior Developer'>Senior Developer</option>
-						<option value='Manager'>Manager</option>
-						<option value='Student or Learning'>Student or Learning</option>
-						<option value='Instructor'>Instructor or Teacher</option>
-						<option value='Intern'>Intern</option>
-						<option value='Other'>Other</option>
+						<option value='0'>Please Select</option>
+						<option value='Developer'>Pre-Freshman</option>
+						<option value='Junior Developer'>Freshman</option>
+						<option value='Senior Developer'>Sophomore</option>
+						<option value='Manager'>Junior</option>
+						<option value='Student or Learning'>Senior</option>
+						<option value='Instructor'>Super Senior</option>
+						<option value='Intern'>Grad Student</option>
+						<option value='Other'>PHD Student</option>
 					</select>
-					<small className='form-text'>
-						Give us an idea of where you are at in your career
-					</small>
 				</div>
 				<div className='form-group'>
+                <p className='form-text'>
+						What dorm do you live in?
+					</p>
 					<input
 						type='text'
-						placeholder='Company'
+						placeholder='Eg. Tooker'
 						name='company'
 						value={company}
 						onChange={e => onChange(e)}
 					/>
-					<small className='form-text'>
-						Could be your own company or one you work for
-					</small>
 				</div>
 				<div className='form-group'>
+                <p className='form-text'>
+						Whatis your major?
+					</p>
 					<input
 						type='text'
-						placeholder='Website'
+						placeholder='Eg. Computer Science'
 						name='website'
 						value={website}
 						onChange={e => onChange(e)}
 					/>
-					<small className='form-text'>
-						Could be your own or a company website
-					</small>
 				</div>
 				<div className='form-group'>
+                <p className='form-text'>
+						Where are you from?
+					</p>
 					<input
 						type='text'
-						placeholder='Location'
+						placeholder='Eg. Phoenix, AZ'
 						name='location'
 						value={location}
 						onChange={e => onChange(e)}
 					/>
-					<small className='form-text'>
-						City & state suggested (eg. Boston, MA)
-					</small>
 				</div>
 				<div className='form-group'>
+                <p className='form-text'>
+						What are some of your interests?
+					</p>
 					<input
 						type='text'
-						placeholder='* Skills'
+						placeholder='Eg. Football, music, reading, hiking, painting'
 						name='skills'
 						value={skills}
 						onChange={e => onChange(e)}
 					/>
-					<small className='form-text'>
-						Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
-					</small>
-				</div>
-				<div className='form-group'>
-					<input
-						type='text'
-						placeholder='Github Username'
-						name='githubusername'
-						value={githubusername}
-						onChange={e => onChange(e)}
-					/>
-					<small className='form-text'>
-						If you want your latest repos and a Github link, include your
-						username
-					</small>
 				</div>
 				<div className='form-group'>
 					<textarea
-						placeholder='A short bio of yourself'
+						placeholder='Write a short biography that makes you stand out!'
 						name='bio'
 						value={bio}
 						onChange={e => onChange(e)}
 					/>
-					<small className='form-text'>Tell us a little about yourself</small>
 				</div>
 
 				<div className='my-2'>
+                <p className='form-text'>
+						Add some social networks if you want?
+					</p>
 					<button
 						onClick={() => toggleSocialInputs(!displaySocialInputs)}
 						type='button'
-						className='btn btn-light'
+						className='btn btn-primary'
 					>
 						Add Social Network Links
 					</button>
@@ -193,10 +180,10 @@ const CreateProfile = ({
 						</div>
 
 						<div className='form-group social-input'>
-							<i className='fab fa-linkedin fa-2x' />
+							<i className='fab fa-discord fa-2x' />
 							<input
 								type='text'
-								placeholder='Linkedin URL'
+								placeholder='Discord username'
 								name='linkedin'
 								value={linkedin}
 								onChange={e => onChange(e)}
@@ -213,11 +200,21 @@ const CreateProfile = ({
 								onChange={e => onChange(e)}
 							/>
 						</div>
+                        <div className='form-group social-input'>
+							<i className='fab fa-twitch fa-2x' />
+							<input
+								type='text'
+								placeholder='Twitch URL'
+								name='instagram'
+								value={instagram}
+								onChange={e => onChange(e)}
+							/>
+						</div>
 					</Fragment>
 				)}
 
-				<input type='submit' className='btn btn-primary my-1' />
-				<Link className='btn btn-light my-1' to='/dashboard'>
+				<input type='submit' className='btn btn-success' />
+				<Link className='btn btn-danger' to='/dashboard'>
 					Go Back
 				</Link>
 			</form>
