@@ -19,9 +19,8 @@ const Dashboard = ({
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Dashboard</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Welcome {user && user.name}
+        <i className="fas fa-user" /> {user && user.name}
       </p>
       {profile !== null ? (
         <Fragment>
@@ -37,7 +36,7 @@ const Dashboard = ({
         </Fragment>
       ) : (
         <Fragment>
-          <p>You have not yet setup a profile, please add some info</p>
+          <p>You have not created your profile yet</p>
           <Link to="/create-profile" className="btn btn-primary my-1">
             Create Profile
           </Link>

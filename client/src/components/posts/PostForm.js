@@ -3,14 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../actions/post';
 
-const PostForm = ({ addPost }) => {
-  const [text, setText] = useState('');
+const PostForm = ({ auth: { user }, addPost }) => {
+  const [text, setText] = useState(("Whats on your mind " + `${user && user.name}` + " ?"));
 
   return (
     <div className='post-form'>
-      <div className='bg-primary p'>
-        <h3>Say Something...</h3>
-      </div>
       <form
         className='form my-1'
         onSubmit={e => {
@@ -23,7 +20,7 @@ const PostForm = ({ addPost }) => {
           name='text'
           cols='30'
           rows='5'
-          placeholder='Create a post'
+          placeholder={text}
           value={text}
           onChange={e => setText(e.target.value)}
           required
@@ -34,11 +31,19 @@ const PostForm = ({ addPost }) => {
   );
 };
 
+
+
 PostForm.propTypes = {
-  addPost: PropTypes.func.isRequired
+  addPost: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
+const mapStateToProps = (state) => ({
+  auth: state.auth
+});
+
+
 export default connect(
-  null,
+  mapStateToProps,
   { addPost }
 )(PostForm);

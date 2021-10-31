@@ -1,5 +1,0 @@
-{
-    "mongoURI": "mongodb+srv://Arjun:lolcake12345@firstcluster.wdkxi.mongodb.net/firstCluster?retryWrites=true&w=majority",
-    "jwtSecret": "mysecrettoken"
-
-}

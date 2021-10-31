@@ -1,21 +1,34 @@
-import React from "react";
+import { Alert } from "../layout/Alert"
+import React, {Fragment, useState} from "react";
 import { Redirect, Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import { login } from '../../actions/auth';
 import PropTypes from 'prop-types';
+import Login from '../../components/auth/Login';
 
-const onSubmit = async (e) => {
-    return <Redirect to="/Login"/>
+const Landing = ({ login, isAuthenticated }) => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""});
 
-};
+  const { email, password } = formData;
 
-const Landing = ({ isAuthenticated }) => {
+  const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = e => {
+    e.preventDefault();
+    login(email, password);
+  };
 
   if (isAuthenticated) {
-    return <Redirect to='/dashboard'/>
+    return <Redirect to='/posts'/>;
   }
+  
 
   return (
-    <section className="landing">
+    <Fragment>
+    <div className="landing">
       <div className="dark-overlay">
       <div className="intro-text">
           <h1 className="x-large">DormBook</h1>
@@ -26,45 +39,22 @@ const Landing = ({ isAuthenticated }) => {
           </div>
         <div className="landing-inner">
           <div className="buttons">
-      <h1 className="large text-primary">
-        <i className="fas fa-user"></i> Sign Into Your Account
-      </h1>
-      <form className="form" onSubmit={(e) => onSubmit(e)}>
-        <div className="form-group">
-          <input
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            minLength="6"
-            required
-          />
-        </div>
-        <input type="submit" className="btn btn-primary" value="Login" />
-      </form>
-      <p className="my-1">
-        Don't have an account? <p className="btn btn-primary"><Link to="/register">Register an account</Link></p>
-      </p>
+     <Login/>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+    </Fragment>
   );
 };
 
 Landing.propTypes = {
+  login: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool
-}
+};
 
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps)(Landing);
+export default connect(mapStateToProps, { login }) (Landing);
