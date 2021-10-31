@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Spinner from '../layout/Spinner';
+import Loading from '../layout/Loading';
 import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
 import ProfileExperience from './ProfileExperience';
@@ -23,7 +23,7 @@ const Profile = ({
   return (
     <Fragment>
       {profile === null || loading ? (
-        <Spinner />
+        <Loading />
       ) : (
         <Fragment>
           <Link to='/profiles' className='btn btn-light'>

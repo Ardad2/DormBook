@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
-import spinner from './spinner.gif';
+import loading from './Loading.gif';
 
-const Spinner = () => (
+const Loading = () => (
   <Fragment>
     <img
-      src={spinner}
+      src={loading}
       style={{ width: '200px', margin: 'auto', display: 'block' }}
       alt="Loading..."
     />
   </Fragment>
 );
 
-export default Spinner;
+export default Loading;

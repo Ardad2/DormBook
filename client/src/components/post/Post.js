@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Spinner from '../layout/Spinner';
+import Loading from '../layout/Loading';
 import PostItem from '../posts/PostItem';
 import CommentForm from '../post/CommentForm';
 import CommentItem from '../post/CommentItem';
@@ -14,7 +14,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
   }, [getPost, match.params.id]);
 
   return loading || post === null ? (
-    <Spinner />
+    <Loading />
   ) : (
     <Fragment>
       <Link to="/posts" className="btn">
