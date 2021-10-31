@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -8,7 +8,8 @@ import CommentForm from '../post/CommentForm';
 import CommentItem from '../post/CommentItem';
 import { getPost } from '../../actions/post';
 
-const Post = ({ getPost, post: { post, loading }, match }) => {
+const Post = ({ getPost, auth : {user}  ,  post: { post, loading }, match }) => {
+
   useEffect(() => {
     getPost(match.params.id);
   }, [getPost, match.params.id]);
@@ -17,8 +18,8 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
     <Loading />
   ) : (
     <Fragment>
-      <Link to="/posts" className="btn">
-        Back To Posts
+      <Link to="/home" className="btn btn-primary">
+        Go back to home
       </Link>
       <PostItem post={post} showActions={false} />
       <CommentForm postId={post._id} />
@@ -33,11 +34,13 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
 
 Post.propTypes = {
   getPost: PropTypes.func.isRequired,
-  post: PropTypes.object.isRequired
+  post: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  post: state.post
+  post: state.post,
+  auth: state.auth
 });
 
 export default connect(mapStateToProps, { getPost })(Post);

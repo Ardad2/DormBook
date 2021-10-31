@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addComment } from '../../actions/post';
 
-const CommentForm = ({ postId, addComment }) => {
-  const [text, setText] = useState('');
+const CommentForm = ({ auth : {user}, postId, addComment }) => {
+  const [text, setText] = useState(("What are your thoughts on this comment,  " + `${user && user.name}` + " ?"));
 
   return (
     <div className='post-form'>
       <div className='bg-primary p'>
-        <h3>Leave a Comment</h3>
+        <h3>Replies</h3>
       </div>
       <form
         className='form my-1'
@@ -23,7 +23,7 @@ const CommentForm = ({ postId, addComment }) => {
           name='text'
           cols='30'
           rows='5'
-          placeholder='Comment the post'
+          placeholder={text}
           value={text}
           onChange={e => setText(e.target.value)}
           required
@@ -38,7 +38,12 @@ CommentForm.propTypes = {
   addComment: PropTypes.func.isRequired
 };
 
+const mapStateToProps = (state) => ({
+  post: state.post,
+  auth: state.auth
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { addComment }
 )(CommentForm);

@@ -1,4 +1,4 @@
-import { Alert } from "../layout/Alert"
+
 import React, {Fragment, useState} from "react";
 import { Redirect, Link } from "react-router-dom";
 import { connect } from 'react-redux';
@@ -22,10 +22,8 @@ const Landing = ({ login, isAuthenticated }) => {
   };
 
   if (isAuthenticated) {
-    return <Redirect to='/posts'/>;
+    return <Redirect to='/home'/>;
   }
-  
-
   return (
     <Fragment>
     <div className="landing">

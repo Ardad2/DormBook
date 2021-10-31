@@ -11,7 +11,7 @@ const Navbar = ({ auth: { isAuthenticated, user }, logout }) => {
       <Link to="/profiles"><i className="fas fa-list" /> User List</Link>
       </li>
       <li>
-        <Link to="/dashboard">
+        <Link to="/my-profile">
           <i className="fas fa-user" />{' '}
           <span className="hide-sm">{user && user.name}</span>
         </Link>
@@ -36,8 +36,8 @@ const Navbar = ({ auth: { isAuthenticated, user }, logout }) => {
   return (
     <nav className="navbar bg-dark">
       <h1>
-        <Link to="/">
-          <i className="fas fa-building" /> Dormbook
+        <Link to="">
+          <i className="fas fa-building" />Dormbook
         </Link>
       </h1>
       <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>

@@ -37,7 +37,7 @@ const PostItem = ({
           </button>
 
 
-          <Link to={`/posts/${_id}`} className="btn btn-primary">
+          <Link to={`/home/${_id}`} className="btn btn-primary">
           <i class="fa fa-comment" aria-hidden="true"></i>{' '} 
 
 
