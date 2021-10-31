@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const config = require("config");
-const db = "mongodb+srv://Arjun:lolcake12345@firstcluster.wdkxi.mongodb.net/firstCluster?retryWrites=true&w=majority";
+const db = "";
 
 const connectDB = async () => {
   try {
