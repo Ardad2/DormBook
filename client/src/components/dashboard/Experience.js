@@ -1,20 +1,20 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { deleteExperience } from '../../actions/profile';
+import { deleteClub } from '../../actions/profile';
 import formatDate from '../../utils/formatDate';
 
-const Experience = ({ experience, deleteExperience }) => {
-  const experiences = experience.map((exp) => (
-    <tr key={exp._id}>
-      <td>{exp.company}</td>
-      <td className="hide-sm">{exp.title}</td>
+const Club = ({ club, deleteClub }) => {
+  const clubs = club.map((club) => (
+    <tr key={club._id}>
+      <td>{club.company}</td>
+      <td className="hide-sm">{club.title}</td>
       <td>
-        {formatDate(exp.from)} - {exp.to ? formatDate(exp.to) : 'Now'}
+        {formatDate(club.from)} - {club.to ? formatDate(club.to) : 'Now'}
       </td>
       <td>
         <button
-          onClick={() => deleteExperience(exp._id)}
+          onClick={() => deleteClub(club._id)}
           className="btn btn-danger"
         >
           Delete
@@ -25,25 +25,25 @@ const Experience = ({ experience, deleteExperience }) => {
 
   return (
     <Fragment>
-      <h2 className="my-2">Experience Credentials</h2>
+      <h2 className="my-2">Club Credentials</h2>
       <table className="table">
         <thead>
           <tr>
-            <th>Company</th>
-            <th className="hide-sm">Title</th>
+            <th>Name</th>
+            <th className="hide-sm">Position</th>
             <th className="hide-sm">Years</th>
             <th />
           </tr>
         </thead>
-        <tbody>{experiences}</tbody>
+        <tbody>{clubs}</tbody>
       </table>
     </Fragment>
   );
 };
 
-Experience.propTypes = {
-  experience: PropTypes.array.isRequired,
-  deleteExperience: PropTypes.func.isRequired
+Club.propTypes = {
+  club: PropTypes.array.isRequired,
+  deleteClub: PropTypes.func.isRequired
 };
 
-export default connect(null, { deleteExperience })(Experience);
+export default connect(null, { deleteClub })(Club);

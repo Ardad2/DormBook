@@ -8,8 +8,6 @@ import {
   UPDATE_PROFILE,
   CLEAR_PROFILE,
   ACCOUNT_DELETED,
-  GET_REPOS,
-  NO_REPOS
 } from './types';
 
 // Get current users profile
@@ -65,22 +63,6 @@ export const getProfileById = (userId) => async (dispatch) => {
   }
 };
 
-// Get Github repos
-export const getGithubRepos = (username) => async (dispatch) => {
-  try {
-    const res = await api.get(`/profile/github/${username}`);
-
-    dispatch({
-      type: GET_REPOS,
-      payload: res.data
-    });
-  } catch (err) {
-    dispatch({
-      type: NO_REPOS
-    });
-  }
-};
-
 // Create or update profile
 export const createProfile = (formData, history, edit = false) => async (
   dispatch
@@ -112,19 +94,19 @@ export const createProfile = (formData, history, edit = false) => async (
   }
 };
 
-// Add Experience
-export const addExperience = (formData, history) => async (dispatch) => {
+// Add a new club
+export const addClub = (formData, history) => async (dispatch) => {
   try {
-    const res = await api.put('/profile/experience', formData);
+    const res = await api.put('/profile/club', formData);
 
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data
     });
 
-    dispatch(setAlert('Experience Added', 'success'));
+    dispatch(setAlert('Club Added', 'success'));
 
-    history.push('/dashboard');
+    history.push('/my-profile');
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -139,63 +121,18 @@ export const addExperience = (formData, history) => async (dispatch) => {
   }
 };
 
-// Add Education
-export const addEducation = (formData, history) => async (dispatch) => {
-  try {
-    const res = await api.put('/profile/education', formData);
-
-    dispatch({
-      type: UPDATE_PROFILE,
-      payload: res.data
-    });
-
-    dispatch(setAlert('Education Added', 'success'));
-
-    history.push('/dashboard');
-  } catch (err) {
-    const errors = err.response.data.errors;
-
-    if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
-    }
-
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });
-  }
-};
 
 // Delete experience
-export const deleteExperience = (id) => async (dispatch) => {
+export const deleteClub = (id) => async (dispatch) => {
   try {
-    const res = await api.delete(`/profile/experience/${id}`);
+    const res = await api.delete(`/profile/club/${id}`);
 
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data
     });
 
-    dispatch(setAlert('Experience Removed', 'success'));
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });
-  }
-};
-
-// Delete education
-export const deleteEducation = (id) => async (dispatch) => {
-  try {
-    const res = await api.delete(`/profile/education/${id}`);
-
-    dispatch({
-      type: UPDATE_PROFILE,
-      payload: res.data
-    });
-
-    dispatch(setAlert('Education Removed', 'success'));
+    dispatch(setAlert('Club Removed', 'success'));
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,

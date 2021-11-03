@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import formatDate from '../../utils/formatDate';
 
-const ProfileExperience = ({
-  experience: { company, title, location, current, to, from, description }
+const ProfileClub = ({
+  club: { name, position, campus, from, to, current, description }
 }) => (
   <div>
-    <h3 className="text-dark">{company}</h3>
+    <h3 className="text-dark">{name}</h3>
     <p>
       {formatDate(from)} - {to ? formatDate(to) : 'Now'}
     </p>
     <p>
-      <strong>Position: </strong> {title}
+      <strong>Position: </strong> {position}
     </p>
     <p>
-      <strong>Location: </strong> {location}
+      <strong>Campus: </strong> {campus}
     </p>
     <p>
       <strong>Description: </strong> {description}
@@ -22,8 +22,8 @@ const ProfileExperience = ({
   </div>
 );
 
-ProfileExperience.propTypes = {
+ProfileClub.propTypes = {
   experience: PropTypes.object.isRequired
 };
 
-export default ProfileExperience;
+export default ProfileClub;
