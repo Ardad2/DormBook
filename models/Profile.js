@@ -5,69 +5,37 @@ const ProfileSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
   },
-  company: {
+  dorm: {
     type: String
   },
-  website: {
+  major: {
     type: String
   },
-  location: {
+  hometown: {
     type: String
   },
-  status: {
+  year: {
     type: String,
     required: true
   },
-  skills: {
+  interests: {
     type: [String],
     required: true
   },
   bio: {
     type: String
   },
-  githubusername: {
-    type: String
-  },
-  experience: [
+  clubs: [
     {
-      title: {
+      position: {
         type: String,
         required: true
       },
-      company: {
+      name: {
         type: String,
         required: true
       },
-      location: {
-        type: String
-      },
-      from: {
-        type: Date,
-        required: true
-      },
-      to: {
-        type: Date
-      },
-      current: {
-        type: Boolean,
-        default: false
-      },
-      description: {
-        type: String
-      }
-    }
-  ],
-  education: [
-    {
-      school: {
-        type: String,
-        required: true
-      },
-      degree: {
-        type: String,
-        required: true
-      },
-      fieldofstudy: {
+      campus: {
         type: String,
         required: true
       },
@@ -97,11 +65,17 @@ const ProfileSchema = new mongoose.Schema({
     facebook: {
       type: String
     },
-    linkedin: {
-      type: String
-    },
     instagram: {
       type: String
+    },
+    tiktok: {
+      type: String
+    },
+    twitch: {
+      type: String
+    },
+    discord: {
+      type:String
     }
   },
   date: {
@@ -110,4 +84,4 @@ const ProfileSchema = new mongoose.Schema({
   }
 });
 
-module.exports = Profile = mongoose.model('profile', ProfileSchema);
+module.exports = mongoose.model('profile', ProfileSchema);

@@ -2,53 +2,43 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addEducation } from '../../actions/profile';
+import { addClub } from '../../actions/profile';
 
-const AddEducation = ({ addEducation, history }) => {
+const AddClub = ({ addClub, history }) => {
   const [formData, setFormData] = useState({
-    school: '',
-    degree: '',
-    fieldofstudy: '',
+    name: '',
+    position: '',
+    campus: '',
     from: '',
     to: '',
     current: false,
     description: ''
   });
 
-  const {
-    school,
-    degree,
-    fieldofstudy,
-    from,
-    to,
-    description,
-    current
-  } = formData;
+  const { name, position, campus, from, to, current, description } = formData;
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Add Your Education</h1>
+      <h1 className="large text-primary">Add Organizations</h1>
       <p className="lead">
-        <i className="fas fa-code-branch" /> Add any school or bootcamp that you
-        have attended
+        <i className="fas fa-code-branch" /> Add student organizations you are part of or where part of.
       </p>
-      <small>* = required field</small>
       <form
         className="form"
         onSubmit={e => {
           e.preventDefault();
-          addEducation(formData, history);
+          addExperience(formData, history);
         }}
       >
         <div className="form-group">
           <input
             type="text"
-            placeholder="* School or Bootcamp"
-            name="school"
-            value={school}
+            placeholder="Position"
+            name="position"
+            value={position}
             onChange={onChange}
             required
           />
@@ -56,9 +46,9 @@ const AddEducation = ({ addEducation, history }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="* Degree or Certificate"
-            name="degree"
-            value={degree}
+            placeholder="Club Name"
+            name="name"
+            value={name}
             onChange={onChange}
             required
           />
@@ -66,9 +56,9 @@ const AddEducation = ({ addEducation, history }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="Field of Study"
-            name="fieldofstudy"
-            value={fieldofstudy}
+            placeholder="Campus"
+            name="campus"
+            value={campus}
             onChange={onChange}
           />
         </div>
@@ -83,9 +73,11 @@ const AddEducation = ({ addEducation, history }) => {
               name="current"
               checked={current}
               value={current}
-              onChange={() => setFormData({ ...formData, current: !current })}
+              onChange={() => {
+                setFormData({ ...formData, current: !current });
+              }}
             />{' '}
-            Current School
+            Current Job
           </p>
         </div>
         <div className="form-group">
@@ -103,22 +95,22 @@ const AddEducation = ({ addEducation, history }) => {
             name="description"
             cols="30"
             rows="5"
-            placeholder="Program Description"
+            placeholder=""
             value={description}
             onChange={onChange}
           />
         </div>
         <input type="submit" className="btn btn-primary my-1" />
-        <Link className="btn btn-light my-1" to="/dashboard">
-          Go Back
+        <Link className="btn btn-success" to="/my-profile">
+          Return
         </Link>
       </form>
     </Fragment>
   );
 };
 
-AddEducation.propTypes = {
-  addEducation: PropTypes.func.isRequired
+AddClub.propTypes = {
+  addExperience: PropTypes.func.isRequired
 };
 
-export default connect(null, { addEducation })(AddEducation);
+export default connect(null, { addExperience })(AddClub);

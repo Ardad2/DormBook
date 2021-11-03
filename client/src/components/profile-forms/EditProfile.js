@@ -10,20 +10,21 @@ const EditProfile = ({
   getCurrentProfile,
   history
 }) => {
-  const [formData, setFormData] = useState({
-    company: '',
-    website: '',
-    location: '',
-    status: '',
-    skills: '',
-    githubusername: '',
-    bio: '',
-    twitter: '',
-    facebook: '',
-    linkedin: '',
-    youtube: '',
-    instagram: ''
-  });
+	const [formData, setFormData] = useState({
+		dorm: '',
+		major: '',
+		hometown: '',
+		year: '',
+		interests: '',
+		bio: '',
+		youtube: '',
+		twitter: '',
+		facebook: '',
+		instagram: '',
+		tiktok: '',
+		twitch: '',
+		discord: ''
+	});
 
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
@@ -31,35 +32,36 @@ const EditProfile = ({
     getCurrentProfile();
 
     setFormData({
-      company: loading || !profile.company ? '' : profile.company,
-      website: loading || !profile.website ? '' : profile.website,
-      location: loading || !profile.location ? '' : profile.location,
-      status: loading || !profile.status ? '' : profile.status,
-      skills: loading || !profile.skills ? '' : profile.skills.join(','),
-      githubusername:
-        loading || !profile.githubusername ? '' : profile.githubusername,
+      dorm: loading || !dorm.company ? '' : dorm.company,
+      major: loading || !major.website ? '' : major.website,
+      hometown: loading || !hometown.location ? '' : hometown.location,
+      year: loading || !profile.year ? '' : profile.year,
+      interests: loading || !profile.interests ? '' : profile.interests.join(','),
       bio: loading || !profile.bio ? '' : profile.bio,
+      youtube: loading || !profile.social ? '' : profile.social.youtube,
       twitter: loading || !profile.social ? '' : profile.social.twitter,
       facebook: loading || !profile.social ? '' : profile.social.facebook,
-      linkedin: loading || !profile.social ? '' : profile.social.linkedin,
-      youtube: loading || !profile.social ? '' : profile.social.youtube,
-      instagram: loading || !profile.social ? '' : profile.social.instagram
+      instagram: loading || !profile.social ? '' : profile.social.instagram,
+      tiktok: loading || !profile.social ? '' : profile.social.tiktok,
+      twitch: loading || !profile.social ? '' : profile.social.twitch,
+      discord: loading || !profile.social ? '' : profile.social.discord,
     });
   }, [loading, getCurrentProfile]);
 
   const {
-    company,
-    website,
-    location,
-    status,
-    skills,
-    githubusername,
-    bio,
-    twitter,
-    facebook,
-    linkedin,
-    youtube,
-    instagram
+		dorm,
+		major,
+		hometown,
+		year,
+		interests,
+		bio,
+		youtube,
+		twitter,
+		facebook,
+		instagram,
+		tiktok,
+		twitch,
+		discord
   } = formData;
 
   const onChange = e =>
@@ -72,171 +74,175 @@ const EditProfile = ({
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Edit Your Profile</h1>
+      <h1 className='large text-primary'>Edit Profile</h1>
       <p className='lead'>
         <i className='fas fa-user' /> Add some changes to your profile
       </p>
-      <small>* = required field</small>
       <form className='form' onSubmit={e => onSubmit(e)}>
-        <div className='form-group'>
-          <select name='status' value={status} onChange={e => onChange(e)}>
-            <option>* Select Professional Status</option>
-            <option value='Developer'>Incoming Freshman</option>
-            <option value='Junior Developer'>Sophomore</option>
-            <option value='Senior Developer'>Junior</option>
-            <option value='Manager'>Senior</option>
-            <option value='Student or Learning'>Grad Student</option>
-            <option value='Instructor'>PHD Student</option>
-            <option value='Intern'>Other</option>
-          </select>
-          <small className='form-text'>
-            What year are ou in?
-          </small>
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Company'
-            name='company'
-            value={company}
-            onChange={e => onChange(e)}
-          />
-          <small className='form-text'>
-            Could be your own company or one you work for
-          </small>
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Website'
-            name='website'
-            value={website}
-            onChange={e => onChange(e)}
-          />
-          <small className='form-text'>
-            Could be your own or a company website
-          </small>
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Location'
-            name='location'
-            value={location}
-            onChange={e => onChange(e)}
-          />
-          <small className='form-text'>
-            Where are you originally from
-          </small>
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='* Skills'
-            name='skills'
-            value={skills}
-            onChange={e => onChange(e)}
-          />
-          <small className='form-text'>
-            Tell us soome your interests
-          </small>
-        </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Github Username'
-            name='githubusername'
-            value={githubusername}
-            onChange={e => onChange(e)}
-          />
-          <small className='form-text'>
-            If you want your latest repos and a Github link, include your
-            username
-          </small>
-        </div>
-        <div className='form-group'>
-          <textarea
-            placeholder='A short bio of yourself'
-            name='bio'
-            value={bio}
-            onChange={e => onChange(e)}
-          />
-          <small className='form-text'>Tell us a little about yourself</small>
-        </div>
+				<div className='form-group'>
+                <p className='form-text'>
+						What year are you in college?
+					</p>
+					<select name='year' value={year} onChange={e => onChange(e)}>
+						<option value='0'>Please Select</option>
+						<option value='Developer'>Pre-Freshman</option>
+						<option value='Junior Developer'>Freshman</option>
+						<option value='Senior Developer'>Sophomore</option>
+						<option value='Manager'>Junior</option>
+						<option value='Student or Learning'>Senior</option>
+						<option value='Instructor'>Super Senior</option>
+						<option value='Intern'>Grad Student</option>
+						<option value='Other'>PHD Student</option>
+					</select>
+				</div>
+				<div className='form-group'>
+                <p className='form-text'>
+						What dorm do you live in?
+					</p>
+					<input
+						type='text'
+						placeholder='Eg. Tooker'
+						name='dorm'
+						value={dorm}
+						onChange={e => onChange(e)}
+					/>
+				</div>
+				<div className='form-group'>
+                <p className='form-text'>
+						Whatis your major?
+					</p>
+					<input
+						type='text'
+						placeholder='Eg. Computer Science'
+						name='major'
+						value={major}
+						onChange={e => onChange(e)}
+					/>
+				</div>
+				<div className='form-group'>
+                <p className='form-text'>
+						Where are you from?
+					</p>
+					<input
+						type='text'
+						placeholder='Eg. Phoenix, AZ'
+						name='hometown'
+						value={hometown}
+						onChange={e => onChange(e)}
+					/>
+				</div>
+				<div className='form-group'>
+                <p className='form-text'>
+						What are some of your interests?
+					</p>
+					<input
+						type='text'
+						placeholder='Eg. Football, music, reading, hiking, painting'
+						name='interests'
+						value={interests}
+						onChange={e => onChange(e)}
+					/>
+				</div>
+				<div className='form-group'>
+					<textarea
+						placeholder='Write a short biography that makes you stand out!'
+						name='bio'
+						value={bio}
+						onChange={e => onChange(e)}
+					/>
+				</div>
 
-        <div className='my-2'>
-          <button
-            onClick={() => toggleSocialInputs(!displaySocialInputs)}
-            type='button'
-            className='btn btn-light'
-          >
-            Add Social Network Links
-          </button>
-          <span>Optional</span>
-        </div>
-
-        {displaySocialInputs && (
-          <Fragment>
-            <div className='form-group social-input'>
-              <i className='fab fa-twitter fa-2x' />
-              <input
-                type='text'
-                placeholder='Twitter URL'
-                name='twitter'
-                value={twitter}
-                onChange={e => onChange(e)}
-              />
-            </div>
-
-            <div className='form-group social-input'>
-              <i className='fab fa-facebook fa-2x' />
-              <input
-                type='text'
-                placeholder='Facebook URL'
-                name='facebook'
-                value={facebook}
-                onChange={e => onChange(e)}
-              />
-            </div>
-
-            <div className='form-group social-input'>
-              <i className='fab fa-youtube fa-2x' />
-              <input
-                type='text'
-                placeholder='YouTube URL'
-                name='youtube'
-                value={youtube}
-                onChange={e => onChange(e)}
-              />
-            </div>
-
-            <div className='form-group social-input'>
-              <i className='fab fa-linkedin fa-2x' />
-              <input
-                type='text'
-                placeholder='Linkedin URL'
-                name='linkedin'
-                value={linkedin}
-                onChange={e => onChange(e)}
-              />
-            </div>
-
-            <div className='form-group social-input'>
-              <i className='fab fa-instagram fa-2x' />
-              <input
-                type='text'
-                placeholder='Instagram URL'
-                name='instagram'
-                value={instagram}
-                onChange={e => onChange(e)}
-              />
-            </div>
+				<div className='my-2'>
+                <p className='form-text'>
+						Add some of your social network accounts
+					</p>
+					<button
+						onClick={() => toggleSocialInputs(!displaySocialInputs)}
+						type='button'
+						className='btn btn-primary'
+					>
+						Add Social Network Links
+					</button>
+					<span>Optional</span>
+				</div>
+				{displaySocialInputs && (
+					<Fragment>
+						<div className='form-group social-input'>
+							<i className='fab fa-youtube fa-2x' />
+							<input
+								type='text'
+								placeholder=''
+								name='youtube'
+								value={youtube}
+								onChange={e => onChange(e)}
+							/>
+						</div>
+						<div className='form-group social-input'>
+							<i className='fab fa-twitter fa-2x' />
+							<input
+								type='text'
+								placeholder=''
+								name='twitter'
+								value={twitter}
+								onChange={e => onChange(e)}
+							/>
+						</div>
+						<div className='form-group social-input'>
+							<i className='fab fa-facebook fa-2x' />
+							<input
+								type='text'
+								placeholder=''
+								name='facebook'
+								value={facebook}
+								onChange={e => onChange(e)}
+							/>
+						</div>
+						<div className='form-group social-input'>
+							<i className='fab fa-instagram fa-2x' />
+							<input
+								type='text'
+								placeholder=''
+								name='instagram'
+								value={instagram}
+								onChange={e => onChange(e)}
+							/>
+						</div>
+						<div className='form-group social-input'>
+							<i className='fab fa-tiktok fa-2x' />
+							<input
+								type='text'
+								placeholder=''
+								name='tiktok'
+								value={tiktok}
+								onChange={e => onChange(e)}
+							/>
+						</div>
+						<div className='form-group social-input'>
+							<i className='fab fa-twitch fa-2x' />
+							<input
+								type='text'
+								placeholder=''
+								name='twitch'
+								value={twitch}
+								onChange={e => onChange(e)}
+							/>
+						</div>
+						<div className='form-group social-input'>
+							<i className='fab fa-discord fa-2x' />
+							<input
+								type='text'
+								placeholder=''
+								name='discord'
+								value={discord}
+								onChange={e => onChange(e)}
+							/>
+						</div>
           </Fragment>
         )}
 
-        <input type='submit' className='btn btn-primary my-1' />
-        <Link className='btn btn-light my-1' to='/dashboard'>
-          Go Back
+        <input type='submit' className='btn btn-success' />
+        <Link className='btn btn-light my-1' to='/my-profile'>
+          Return
         </Link>
       </form>
     </Fragment>

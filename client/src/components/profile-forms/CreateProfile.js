@@ -11,33 +11,35 @@ const CreateProfile = ({
 	history
 }) => {
 	const [formData, setFormData] = useState({
-		company: '',
-		website: '',
-		location: '',
-		status: '',
-		skills: '',
-		githubusername: '',
+		dorm: '',
+		major: '',
+		hometown: '',
+		year: '',
+		interests: '',
 		bio: '',
+		youtube: '',
 		twitter: '',
 		facebook: '',
-		linkedin: '',
-		youtube: '',
-		instagram: ''
+		instagram: '',
+		tiktok: '',
+		twitch: '',
+		discord: ''
 	});
 	const [displaySocialInputs, toggleSocialInputs] = useState(false);
 	const {
-		company,
-		website,
-		location,
-		status,
-		skills,
-		githubusername,
+		dorm,
+		major,
+		hometown,
+		year,
+		interests,
 		bio,
+		youtube,
 		twitter,
 		facebook,
-		linkedin,
-		youtube,
-		instagram
+		instagram,
+		tiktok,
+		twitch,
+		discord
 	} = formData;
 	const onChange = e =>
 		setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -62,7 +64,7 @@ const CreateProfile = ({
                 <p className='form-text'>
 						What year are you in college?
 					</p>
-					<select name='status' value={status} onChange={e => onChange(e)}>
+					<select name='year' value={year} onChange={e => onChange(e)}>
 						<option value='0'>Please Select</option>
 						<option value='Developer'>Pre-Freshman</option>
 						<option value='Junior Developer'>Freshman</option>
@@ -81,8 +83,8 @@ const CreateProfile = ({
 					<input
 						type='text'
 						placeholder='Eg. Tooker'
-						name='company'
-						value={company}
+						name='dorm'
+						value={dorm}
 						onChange={e => onChange(e)}
 					/>
 				</div>
@@ -93,8 +95,8 @@ const CreateProfile = ({
 					<input
 						type='text'
 						placeholder='Eg. Computer Science'
-						name='website'
-						value={website}
+						name='major'
+						value={major}
 						onChange={e => onChange(e)}
 					/>
 				</div>
@@ -105,8 +107,8 @@ const CreateProfile = ({
 					<input
 						type='text'
 						placeholder='Eg. Phoenix, AZ'
-						name='location'
-						value={location}
+						name='hometown'
+						value={hometown}
 						onChange={e => onChange(e)}
 					/>
 				</div>
@@ -117,8 +119,8 @@ const CreateProfile = ({
 					<input
 						type='text'
 						placeholder='Eg. Football, music, reading, hiking, painting'
-						name='skills'
-						value={skills}
+						name='interests'
+						value={interests}
 						onChange={e => onChange(e)}
 					/>
 				</div>
@@ -133,7 +135,7 @@ const CreateProfile = ({
 
 				<div className='my-2'>
                 <p className='form-text'>
-						Add some social networks if you want?
+						Add some of your social network accounts
 					</p>
 					<button
 						onClick={() => toggleSocialInputs(!displaySocialInputs)}
@@ -147,66 +149,72 @@ const CreateProfile = ({
 				{displaySocialInputs && (
 					<Fragment>
 						<div className='form-group social-input'>
-							<i className='fab fa-twitter fa-2x' />
-							<input
-								type='text'
-								placeholder='Twitter URL'
-								name='twitter'
-								value={twitter}
-								onChange={e => onChange(e)}
-							/>
-						</div>
-
-						<div className='form-group social-input'>
-							<i className='fab fa-facebook fa-2x' />
-							<input
-								type='text'
-								placeholder='Facebook URL'
-								name='facebook'
-								value={facebook}
-								onChange={e => onChange(e)}
-							/>
-						</div>
-
-						<div className='form-group social-input'>
 							<i className='fab fa-youtube fa-2x' />
 							<input
 								type='text'
-								placeholder='YouTube URL'
+								placeholder=''
 								name='youtube'
 								value={youtube}
 								onChange={e => onChange(e)}
 							/>
 						</div>
-
 						<div className='form-group social-input'>
-							<i className='fab fa-discord fa-2x' />
+							<i className='fab fa-twitter fa-2x' />
 							<input
 								type='text'
-								placeholder='Discord username'
-								name='linkedin'
-								value={linkedin}
+								placeholder=''
+								name='twitter'
+								value={twitter}
 								onChange={e => onChange(e)}
 							/>
 						</div>
-
+						<div className='form-group social-input'>
+							<i className='fab fa-facebook fa-2x' />
+							<input
+								type='text'
+								placeholder=''
+								name='facebook'
+								value={facebook}
+								onChange={e => onChange(e)}
+							/>
+						</div>
 						<div className='form-group social-input'>
 							<i className='fab fa-instagram fa-2x' />
 							<input
 								type='text'
-								placeholder='Instagram URL'
+								placeholder=''
 								name='instagram'
 								value={instagram}
 								onChange={e => onChange(e)}
 							/>
 						</div>
-                        <div className='form-group social-input'>
+						<div className='form-group social-input'>
+							<i className='fab fa-tiktok fa-2x' />
+							<input
+								type='text'
+								placeholder=''
+								name='tiktok'
+								value={tiktok}
+								onChange={e => onChange(e)}
+							/>
+						</div>
+						<div className='form-group social-input'>
 							<i className='fab fa-twitch fa-2x' />
 							<input
 								type='text'
-								placeholder='Twitch URL'
-								name='instagram'
-								value={instagram}
+								placeholder=''
+								name='twitch'
+								value={twitch}
+								onChange={e => onChange(e)}
+							/>
+						</div>
+						<div className='form-group social-input'>
+							<i className='fab fa-discord fa-2x' />
+							<input
+								type='text'
+								placeholder=''
+								name='discord'
+								value={discord}
 								onChange={e => onChange(e)}
 							/>
 						</div>
@@ -214,8 +222,8 @@ const CreateProfile = ({
 				)}
 
 				<input type='submit' className='btn btn-success' />
-				<Link className='btn btn-danger' to='/dashboard'>
-					Go Back
+				<Link className='btn btn-danger' to='/my-profile'>
+					Return
 				</Link>
 			</form>
 		</Fragment>
