@@ -30,7 +30,7 @@ const AddClub = ({ addClub, history }) => {
         className="form"
         onSubmit={e => {
           e.preventDefault();
-          addExperience(formData, history);
+          addClub(formData, history);
         }}
       >
         <div className="form-group">

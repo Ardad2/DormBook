@@ -4,7 +4,7 @@ import { Redirect, Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { login } from '../../actions/auth';
 import PropTypes from 'prop-types';
-import Login from '../../components/auth/Login';
+import Login from '../auth/Login';
 
 const Landing = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({

@@ -32,9 +32,9 @@ const EditProfile = ({
     getCurrentProfile();
 
     setFormData({
-      dorm: loading || !dorm.company ? '' : dorm.company,
-      major: loading || !major.website ? '' : major.website,
-      hometown: loading || !hometown.location ? '' : hometown.location,
+      dorm: loading || !dorm.company ? '' : profile.dorm,
+      major: loading || !major.website ? '' : profile.major,
+      hometown: loading || !hometown.location ? '' : profile.hometown,
       year: loading || !profile.year ? '' : profile.year,
       interests: loading || !profile.interests ? '' : profile.interests.join(','),
       bio: loading || !profile.bio ? '' : profile.bio,
