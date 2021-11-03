@@ -110,7 +110,7 @@ const AddClub = ({ addClub, history }) => {
 };
 
 AddClub.propTypes = {
-  addExperience: PropTypes.func.isRequired
+  addClub: PropTypes.func.isRequired
 };
 
-export default connect(null, { addExperience })(AddClub);
+export default connect(null, { addClub })(AddClub);

@@ -34,9 +34,9 @@ const Dashboard = ({
         </Fragment>
       ) : (
         <Fragment>
-          <p>You have not created your profile yet</p>
+          <p>You have not set up your profile yet</p>
           <Link to="/create-profile" className="btn btn-primary my-1">
-            Create Profile
+            Set up
           </Link>
         </Fragment>
       )}

@@ -78,7 +78,7 @@ export const createProfile = (formData, history, edit = false) => async (
     dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success'));
 
     if (!edit) {
-      history.push('/dashboard');
+      history.push('/my-profile');
     }
   } catch (err) {
     const errors = err.response.data.errors;
@@ -122,7 +122,7 @@ export const addClub = (formData, history) => async (dispatch) => {
 };
 
 
-// Delete experience
+// Delete clubs
 export const deleteClub = (id) => async (dispatch) => {
   try {
     const res = await api.delete(`/profile/club/${id}`);

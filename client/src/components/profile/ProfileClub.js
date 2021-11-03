@@ -23,7 +23,7 @@ const ProfileClub = ({
 );
 
 ProfileClub.propTypes = {
-  experience: PropTypes.object.isRequired
+  club: PropTypes.object.isRequired
 };
 
 export default ProfileClub;

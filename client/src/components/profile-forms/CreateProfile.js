@@ -52,7 +52,7 @@ const CreateProfile = ({
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [getCurrentProfile]);
 	return loading && profile === null ? (
-		<Redirect to='/dashboard' />
+		<Redirect to='/my-profile' />
 	) : (
 		<Fragment>
 			<h1 className='large text-primary'>Profile Set Up</h1>

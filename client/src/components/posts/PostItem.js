@@ -7,7 +7,7 @@ import { addLike, removeLike, deletePost } from '../../actions/post';
 
 const PostItem = ({
   addLike,
-  removeLike,
+  dislike,
   deletePost,
   auth,
   post: { _id, text, name, avatar, user, likes, comments, date },

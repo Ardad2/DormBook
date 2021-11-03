@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Loading from '../layout/Loading';
 import ProfileTop from './ProfileTop';
-import ProfileAbout from './ProfileAbout';
 import ProfileClub from './ProfileClub';
 import { getProfileById } from '../../actions/profile';
 
@@ -36,7 +35,6 @@ const Profile = ({
             )}
           <div className='profile-grid my-1'>
             <ProfileTop profile={profile} />
-            <ProfileAbout profile={profile} />
             <div className='profile-exp bg-white p-2'>
               <h2 className='text-primary'>Organizations</h2>
               {profile.club.length > 0 ? (
