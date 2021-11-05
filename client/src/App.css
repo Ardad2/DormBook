@@ -129,6 +129,7 @@ img {
 
 .btn {
   display: inline-block;
+  border-radius:300px;
   background: var(--light-color);
   color: #333;
   padding: 0.4rem 1.3rem;
@@ -161,6 +162,7 @@ img {
 .bg-primary,
 .badge-primary,
 .alert-primary {
+  border-radius:0.1 rem;
   background: var(--primary-color);
   color: #fff;
 }
@@ -370,6 +372,7 @@ button {
 }
 .buttons{
   color: rgb(0, 0, 0);
+  border-radius:20px;
   display: flex;
   flex-direction: column;
 }
@@ -479,12 +482,24 @@ button {
 }
 
 /* Posts Page */
-.post-form .post-form-header {
+.post-form .post-form-header{
+  border-radius:10px;
   background: var(--primary-color);
   padding: 0.5rem;
 }
 
+.post-form textarea {
+  border-radius:10px;
+  padding: 0.5rem;
+}
+
+.post-form form input {
+  margin: 0.5rem;
+}
+
+
 .post {
+  border-radius:10px;
   display: flex;
   flex-direction:column;
 }
@@ -499,6 +514,12 @@ button {
 }
 .post img {
   width: 50px;
+  margin-right: 10px;
+}
+.post-buttons {
+  display : flex;
+  flex-direction: row;
+  gap:2.5rem;
 }
 
 .post .comment-count {
@@ -594,7 +615,6 @@ button {
     width: 100%;
     margin-bottom: 0.2rem;
   }
-
   .post {
     grid-template-columns: 1fr;
   }

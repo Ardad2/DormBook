@@ -25,6 +25,7 @@ const PostItem = ({
 
       {showActions && (
         <Fragment>
+          <div className="post-buttons">
           <button
             onClick={() => addLike(_id)}
             type="button"
@@ -53,6 +54,7 @@ const PostItem = ({
               <i className="fas fa-trash" />
             </button>
           )}
+          </div>
         </Fragment>
       )}
     </div>
