@@ -14,15 +14,14 @@ const PostItem = ({
   showActions
 }) => (
   <div className="post bg-white p-1 my-1">
-    <div>
+    <div className="post-header">
+    <img className="round-img" src={avatar} alt="" /> 
       <Link to={`/profile/${user}`}>
-        <img className="round-img" src={avatar} alt="" />
-        <h4>{name}</h4>
+       <p>{name}      <p className="post-date">{formatDate(date)}</p></p>
       </Link>
     </div>
     <div>
       <p className="my-1">{text}</p>
-      <p className="post-date">{formatDate(date)}</p>
 
       {showActions && (
         <Fragment>

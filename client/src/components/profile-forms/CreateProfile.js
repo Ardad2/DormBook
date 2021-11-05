@@ -65,15 +65,15 @@ const CreateProfile = ({
 						What year are you in college?
 					</p>
 					<select name='year' value={year} onChange={e => onChange(e)}>
-						<option value='0'>Please Select</option>
-						<option value='Developer'>Pre-Freshman</option>
-						<option value='Junior Developer'>Freshman</option>
-						<option value='Senior Developer'>Sophomore</option>
-						<option value='Manager'>Junior</option>
-						<option value='Student or Learning'>Senior</option>
-						<option value='Instructor'>Super Senior</option>
-						<option value='Intern'>Grad Student</option>
-						<option value='Other'>PHD Student</option>
+						<option value='0'> Select</option>
+						<option value='Pre-Freshman'>Pre-Freshman</option>
+						<option value='Freshman'>Freshman</option>
+						<option value='Sophomore'>Sophomore</option>
+						<option value='Junior'>Junior</option>
+						<option value='Senior'>Senior</option>
+						<option value='Super Senior'>Super Senior</option>
+						<option value='Grad Student'>Grad Student</option>
+						<option value='PHD Student'>PHD Student</option>
 					</select>
 				</div>
 				<div className='form-group'>

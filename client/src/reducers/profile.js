@@ -40,8 +40,7 @@ function profileReducer(state = initialState, action) {
     case CLEAR_PROFILE:
       return {
         ...state,
-        profile: null,
-        repos: []
+        profile: null
       };
     default:
       return state;

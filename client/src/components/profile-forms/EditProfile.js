@@ -32,9 +32,9 @@ const EditProfile = ({
     getCurrentProfile();
 
     setFormData({
-      dorm: loading || !dorm.company ? '' : profile.dorm,
-      major: loading || !major.website ? '' : profile.major,
-      hometown: loading || !hometown.location ? '' : profile.hometown,
+      dorm: loading || !profile.dorm ? '' : profile.dorm,
+      major: loading || !profile.major ? '' : profile.major,
+      hometown: loading || !profile.hometown ? '' : profile.hometown,
       year: loading || !profile.year ? '' : profile.year,
       interests: loading || !profile.interests ? '' : profile.interests.join(','),
       bio: loading || !profile.bio ? '' : profile.bio,
@@ -241,7 +241,7 @@ const EditProfile = ({
         )}
 
         <input type='submit' className='btn btn-success' />
-        <Link className='btn btn-light my-1' to='/my-profile'>
+        <Link className='btn btn-light my-1' to='/home'>
           Return
         </Link>
       </form>

@@ -13,7 +13,7 @@ import {
 // Get current users profile
 export const getCurrentProfile = () => async (dispatch) => {
   try {
-    const res = await api.get('/profile/me');
+    const res = await api.get('/my-profile');
 
     dispatch({
       type: GET_PROFILE,
