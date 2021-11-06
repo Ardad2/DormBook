@@ -377,8 +377,16 @@ button {
   flex-direction: column;
 }
 
+.profiles
+{
+  display: grid;
+  height: 10%;
+  width: 60%;
+}
+
 /* Profiles Page */
 .profile {
+  border-radius: 10px;
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
   align-items: center;
@@ -392,14 +400,15 @@ button {
 .profile-grid {
   display: grid;
   grid-template-areas:
-    "top top"
-    "about about"
-    "exp edu"
-    "github github";
+    "top top top"
+    "about messagewall messagewall "
+    "friends messagewall"
+    "org messagewall";
   grid-gap: 1rem;
 }
 
 .profile-top {
+  background-image: url("https://images.unsplash.com/photo-1490735891913-40897cdaafd1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3Vuc2V0JTIwc2t5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80");
   grid-area: top;
   display: flex;
   flex-direction: column;
@@ -409,7 +418,7 @@ button {
 }
 
 .profile-top img {
-  width: 250px;
+  width: 150px;
 }
 
 .profile-top .icons a {
@@ -489,6 +498,7 @@ button {
 }
 
 .post-form textarea {
+  background-color: white;
   border-radius:10px;
   padding: 0.5rem;
 }

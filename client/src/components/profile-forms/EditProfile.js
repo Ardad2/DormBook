@@ -241,7 +241,7 @@ const EditProfile = ({
         )}
 
         <input type='submit' className='btn btn-success' />
-        <Link className='btn btn-light my-1' to='/home'>
+        <Link className='btn btn-danger' to='/my-profile'>
           Return
         </Link>
       </form>

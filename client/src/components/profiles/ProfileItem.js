@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 const ProfileItem = ({
   profile: {
     user: { _id, name, avatar },
+    major,
     year,
     dorm,
     hometown,
@@ -12,26 +13,27 @@ const ProfileItem = ({
   }
 }) => {
   return (
-    <div className='profile bg-light'>
+    <Link to={`/profile/${_id}`} >
+    <div className='profile bg-primary'>
       <img src={avatar} alt='' className='round-img' />
       <div>
         <h2>{name}</h2>
+        <h3>N/A</h3>
         <p>
-          {year} {major && <span> majoring in {major} from </span>}{dorm && <span>{dorm}</span>}
+        {major && <span>{major}</span>} {year} living in {dorm && <span>{dorm}</span>}
         </p>
-        <p className='my-1'>{hometown && <span>from {hometown}</span>}</p>
-        <Link to={`/profile/${_id}`} className='btn btn-primary'>
-          View
-        </Link>
+        <p>From {hometown && <span> {hometown}</span>}</p>
       </div>
-      <ul>
+      <p>
+        <h1>Interests/Hobbies</h1>
         {interests.slice(0, 4).map((interests, index) => (
-          <li key={index} className='text-primary'>
-            <i className='fas fa-circle' /> {interests}
-          </li>
+          <p key={index} className='text-secondary'>{interests}
+          </p>
         ))}
-      </ul>
+
+      </p>
     </div>
+    </Link>
   );
 };
 

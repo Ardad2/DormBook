@@ -23,21 +23,27 @@ const Profile = ({
         <Loading />
       ) : (
         <Fragment>
-          <Link to='/profiles' className='btn btn-light'>
-            Back To Profiles
+          <Link to='/profiles' className='btn btn-primary'>
+            Go to user list
           </Link>
           {auth.isAuthenticated &&
             auth.loading === false &&
             auth.user._id === profile.user._id && (
-              <Link to='/edit-profile' className='btn btn-dark'>
-                Edit Profile
+              <Link to='/edit-profile' className='btn btn-success'>
+               <i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile
               </Link>
             )}
-          <div className='profile-grid my-1'>
+                      <div className='profile-grid my-3'>
             <ProfileTop profile={profile} />
-            <div className='profile-exp bg-white p-2'>
-              <h2 className='text-primary'>Organizations</h2>
-              {profile.club.length > 0 ? (
+            </div>
+
+            <div className='profile-about bg-white p-2'>
+              <h2 className='text-primary'>About</h2>
+              <p>{profile.about}</p>
+          </div>
+          <div className='profile-exp bg-white p-2'>
+              <h2 className='text-primary'>Message Wall</h2>
+              {profile.clubs.length > 0 ? (
                 <Fragment>
                   {profile.club.map(club => (
                     <ProfileClub
@@ -49,7 +55,39 @@ const Profile = ({
               ) : (
                 <h4>This user does not report any student organizations.</h4>
               )}
-            </div>
+          
+          </div>            
+            <div className='profile-exp bg-white p-2'>
+              <h2 className='text-primary'>Organizations</h2>
+              {profile.clubs.length > 0 ? (
+                <Fragment>
+                  {profile.club.map(club => (
+                    <ProfileClub
+                      key={club._id}
+                      club={club}
+                    />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4>This user does not report any student organizations.</h4>
+              )}
+          
+          </div>
+          <div className='profile-exp bg-white p-2'>
+              <h2 className='text-primary'>Friends</h2>
+              {profile.clubs.length > 0 ? (
+                <Fragment>
+                  {profile.club.map(club => (
+                    <ProfileClub
+                      key={club._id}
+                      club={club}
+                    />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4>This user does not report any student organizations.</h4>
+              )}
+          
           </div>
         </Fragment>
       )}

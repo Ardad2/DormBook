@@ -5,7 +5,7 @@ import { addPost } from '../../actions/post';
 
 const PostForm = ({ auth: { user }, addPost }) => {
   const [text, setText] = useState(("Whats on your mind " + `${user && user.name}` + " ?"));
-
+  const defaultText = text;
   return (
     <div className='post-form'>
       <form
@@ -16,11 +16,12 @@ const PostForm = ({ auth: { user }, addPost }) => {
           setText('');
         }}
       >
+    <div></div>
         <textarea
           name='text'
           cols='30'
           rows='5'
-          placeholder={text}
+          placeholder="Whats on your mind?"
           value={text}
           onChange={e => setText(e.target.value)}
           required

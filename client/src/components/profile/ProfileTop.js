@@ -12,13 +12,12 @@ const ProfileTop = ({
   }
 }) => {
   return (
-    <div className='profile-top bg-primary p-2'>
-      <img className='round-img my-1' src={avatar} alt='' />
-      <h1 className='large'>{name}</h1>
-      <p className='lead'>
-        {major && <span> major living at</span>} {dorm && <span> at {dorm}</span>}
-      </p>
-      <p>{hometown && <span>{hometown}</span>}</p>
+    <div>
+         <div className='profile-top bg-light p-4'>
+      </div>
+    <div className='profile-top bg-primary p-1'>
+    <img className='round-img my-1' src={avatar} alt=''/>
+      <h1>{name}</h1>
       <div className='icons my-1'>
         {major && (
           <a href={major} target='_blank' rel='noopener noreferrer'>
@@ -63,6 +62,7 @@ const ProfileTop = ({
         )}
 
       </div>
+    </div>
     </div>
   );
 };

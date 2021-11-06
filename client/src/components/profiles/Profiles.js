@@ -16,7 +16,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
         <Loading />
       ) : (
         <Fragment>
-          <h1 className='large text-primary'>User List</h1>
+          <h1 className='large text-secondary'>User List</h1>
           <div className='profiles'>
             {profiles.length > 0 ? (
               profiles.map(profile => (
