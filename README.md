@@ -1,8 +1,7 @@
 # DormBook
 
-This is a full stack website I made ot learn more about back-end web development and full stack development (MERN stack). This project helped me in learning the principles of back-end
-technologies like Node/Express, MongoDB, web tokens, creation of API's, and also generally how the back-end of a website works. Around halfway through the 
-development, I had moved to the US for collegeand in that I had to shift to a new Computer and during that process, this project was on a hiatus due to settling down and I also lost a lot of the
-tests on REST API which I did. I finished the back-end and the front-end but due to my lack of experience in back-end, was unable to connect it with the front-end 
-properly. Nevertheless, I'm satisfied with how much this project taught me about web development despite my disappointment at 
-not being able to make it adequately functional.
+Live at: https://dormbook.herokuapp.com/
+
+This is a full stack website which is a facebook clone that I developed using MERN Stack in May - June 2021 to learn more about as well as practice back-end technologies and principles. I wasn't very comfortable with back-end technologies at that time and a lot of it was developed by looking at various tutorials and the project was in a hiatus for a while as I began my first physical semester at college. I later fixed the problems in the back-end and got the database to run. There are still some minors,. I still from time to time like to work on this project and either fix the bugs or add new features so as to get more familiarized with and learn more about back-end web development.
+
+Features: - the user can register accounts, post on a common home message wall, set up their profiles with details about themselves, private and public messaging (still working on it), like/dislike/reply to posts.
